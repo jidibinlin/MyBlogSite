@@ -1,0 +1,317 @@
++++
+title = "返回两个有序数组中中间的数"
+date = 2022-03-28T20:07:00+08:00
+lastmod = 2022-03-28T20:36:33+08:00
+tags = ["leetcode", "array", "binary_search", "divide_and_conquer"]
+categories = ["leetcode"]
+draft = false
+toc = true
+math = true
++++
+
+## Problems description {#problems-description}
+
+
+### Description {#description}
+
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+The overall run time complexity should be O(log (m+n)).
+
+来源：力扣（LeetCode）
+链接：<https://leetcode-cn.com/problems/median-of-two-sorted-arrays>
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+-   Example 1:
+
+    ```nil
+    Input: nums1 = [1,3], nums2 = [2]
+    Output: 2.00000
+    Explanation: merged array = [1,2,3] and median is 2.
+    ```
+
+-   Example 2:
+
+    ```nil
+    Input: nums1 = [1,2], nums2 = [3,4]
+    Output: 2.50000
+    Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+    ```
+
+-   Example 3:
+
+    ```nil
+    Input: nums1 = [0,0], nums2 = [0,0]
+    Output: 0.00000
+    ```
+
+-   Example 4:
+
+    ```nil
+    Input: nums1 = [], nums2 = [1]
+    Output: 1.00000
+    ```
+-   Example 5:
+
+    ```nil
+    Input: nums1 = [2], nums2 = []
+    Output: 2.00000
+    ```
+-   Constraints:
+
+    ```nil
+    nums1.length == m
+    nums2.length == n
+    0 <= m <= 1000
+    0 <= n <= 1000
+    1 <= m + n <= 2000
+    -106 <= nums1[i], nums2[i] <= 106
+    ```
+
+
+## Analyse {#analyse}
+
+这道题最简单的想法就是先归并到一个数组，然后再把中位数找到，但是此时的时间复杂度为\\(o(m+n)\\) 不符合题意。题目要求的是 \\(o(\log(m+n))\\) 。
+此时我们能想到的应该就只有二分法了，对于有序数组，二分法总能非常有效的降低算法的复杂度。但是如何二分成为一个问题。
+中位数指的是一个数列中间的数。设 len = len(array) 这里的/为整除
+
+\begin{equation}
+\label{中位数公式}
+medium =
+\begin{cases}
+\frac{array[len/2-1] + array[len/2]}{2} &len \mod 2=0 \\\\
+\frac{array[len/2-1]}{2}& len \mod 2\neq 0
+\end{cases}
+\end{equation}
+
+这道题是寻找两个有序数组的中位数，我们可以姑且假设他们已经合并后的数组为 **nums3** 我们要在nums3中寻找中位数。此时 **nums3** 的长度我们
+是知道的(m+n) 那么其中位数的应该为第 k= \\(\frac{m+n}{2}\\) 个数（这里我们先只看奇数情况。这时我们可以对k进行二分处理，分别找到两个s数组中第
+\\(\frac{k}{2}\\) 个数进行比较，然后排除较小的以及它所在数组中在它前面的数。因为他们是不可能成为中位数的。
+对于 nums1[k/2-1] 和 nums2[k/2-1] 在它们之前的只有 k/2-1 + k/2-1 = k -2 个数。即使算上较小的那个数，也只能到第k-1个数。
+所以他们是不可能成为第k个数的。这时我们让 k = k-A(A为已经排除的数的个数) 然后继续对剩下的数组进行同样的操作。 这里会出现两种情况
+
+1.  如果 nums1[k/2-1] &gt;= nums2[k/2-1] 则直接排除nums1[k/2-1] 及其前面的数
+2.  如果 nums1[k/2-1] &lt; nums2[k/2-1] 则直接排除nums2[k/2-1] 及其前面的数
+
+在排除过程中我们还会遇到几种情况
+
+1.  k/2-1 越界，这种情况取最后一个元素
+2.  k=1 直接返回较小的元素
+3.  数组为空，直接去非空数组中寻找即可
+
+
+## Implement {#implement}
+
+```cpp
+//c++ version
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main(int argc, char *argv[]) {
+    Solution s;
+    vector<int> nums1 = new vector<int>();
+    vector<int> nums2 = new vector<int>();
+
+    for(int i = 1;i<10;i++){
+        nums1.push_back(i);
+    }
+    for(int i= 1;i<10;i=i+2){
+        nums2.push_back(i);
+    }
+
+    s.findMedianSortedArrays(nums1,nums2);
+    return 0;
+}
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
+        int k = nums1.size() + nums2.size();
+        if(k%2 == 0){
+            return min(getKthElement(nums1, nums2, k/2+1),getKthElement(nums1, nums2,k/2))/2.0;
+        }else{
+            return getKthElement(nums1,nums2,k/2);
+        }
+    }
+
+    double getKthElement(vector<int> &nums1, vector<int> &nums2,int k){
+        int index1 = 0;
+        int index2 = 0;
+
+        int m = nums1.size();
+        int n = nums2.size();
+
+        while (true){
+            if (index1 == m){
+                return nums2[index2+k-1];
+            }
+            if(index2 == n){
+                return nums1[index1 +k -1];
+            }
+            if(k == 1){
+                return min(nums1[index1],nums2[index2]);
+            }
+
+            int newIndex1 = min(index1+k/2-1,m-1);
+            int newIndex2 = min(index2+k/2-1,n-1);
+
+            if(nums1[newIndex1] >= nums2[newIndex2]){
+                k -= newIndex2 - index2 +1;
+                index2 = newIndex2+1;
+            }else{
+                k -= newIndex1 - index1 +1;
+                index1 = newIndex1+1;
+            }
+
+        }
+    }
+};
+```
+
+```go
+//GO version
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+    k := int(math.Ceil((float64(len(nums1)) + float64(len(nums2))) / 2))
+
+    if (len(nums1)+len(nums2))%2 == 0 {
+        foo1 := getKthElement(nums1, nums2, k)
+        foo2 := getKthElement(nums1, nums2, k+1)
+        return float64(foo1+foo2) / 2
+    } else {
+        return float64(getKthElement(nums1, nums2, k))
+    }
+
+}
+
+func getKthElement(nums1 []int, nums2 []int, k int) int {
+    if len(nums1) == 0 {
+        return nums2[k-1]
+    }
+
+    if len(nums2) == 0 {
+        return nums1[k-1]
+    }
+
+    compareIdx := k / 2
+
+    if compareIdx == 0 {
+        return min(nums1[0], nums2[0])
+    }
+
+    nums1Idx := min(len(nums1)-1, compareIdx-1)
+    nums2Idx := min(len(nums2)-1, compareIdx-1)
+
+    if nums1[nums1Idx] >= nums2[nums2Idx] {
+        if len(nums2) <= compareIdx {
+            return getKthElement(nums1, []int{}, k-(nums2Idx+1))
+        }
+        return getKthElement(nums1, nums2[compareIdx:], k-(nums2Idx+1))
+    } else {
+        if len(nums1) <= compareIdx {
+            return getKthElement([]int{}, nums2, k-(nums1Idx+1))
+        }
+        return getKthElement(nums1[compareIdx:], nums2, k-(nums1Idx+1))
+    }
+}
+
+func min(x, y int) int {
+    if x < y {
+        return x
+    }
+    return y
+}
+```
+
+
+### analyze problem {#analyze-problem}
+
+这道题第一想到思路是归并两个数组，然后找出中位数。但是这个思路的时间复杂为O(m+n),达不到题目的要求。如果是O(log(m+n))这样的复杂度，就需要考虑使用二分。问题是，这道题怎么使用二分。
+这道题让找出中位数，其实很容易就想到用二分去做这道题。
+
+-   二分法就是将数组通过中位数划分为两个数组
+-   二分法的时间复杂度正好也是o(log(n))级别的。
+-   这道题并不一定就需要直接归并两个数组具体看下面分析。
+
+假设两个数组为数组x，数组y 首先中位数是数组中间的数，既然数组长度已知。
+
+```c++
+int total_length = x.size() + y.size()
+int middle = math.floor(total_length / 2)
+```
+
+middle就是中位数所在的位置（如果数组总长度为2的倍数，后面去取中位数的时候是需要特殊处理的，因为无法直接通过索引取到）。
+这个时候问题就变成了，怎么在不合并这两个数组的情况下，找到中位数的位置（废话）。
+这里提供一个思路，由于前提条件，归并两个数组这条路是走不通的。但是，我们可以知道x,y数组中，那些元素是属于归并后的数组的前半部份的（假设这里归并了两个数组，前半部份数组也就是以middle为划分，索引小于middle的数组， 这里我们把这个数组成为有效数组）。
+问题就是如何找到这个有效数组，可以先分别找到两个集合的中位数middle1，middle2并结合middle去调整middle1和middle2。直到middle1_idx + middle2_idx == middle。此时我们就找到了有效数组的所有元素。比如下面的例子。
+
+```nil
+1 3 5 6 7
+1 2 7 8 10
+
+第一次
+1 3 5 6 7
+    ^
+1 2 7 8 10
+    ^
+此时发现 middle1_idx + middle2_idx > middle 我们调整middle2_idx 因为他比较大，不可能出现在有效数组里面。
+1 3 5 6 7
+    ^
+1 2 7 8 10
+  ^
+这个时候发现，middle1_idx + middle2_idx == middle 有效数组的所有元素已经找齐了
+```
+
+下面要做的就是根据有效数组，找到正确的中位数
+通过比较x[middle1_idx] y[middle2_idx] 来确定谁是有效数组的最后一个元素，这个时候，其实中位数已经差不多找到了。如果两数组之和为奇数，那它就是中位数。为偶数，就取比较x[middle1_idx+1] y[middle2_idx+1] 以及最后一个元素，取比最后一个元素大，且离他最近的元素取求偶数情况下的中位数
+用上面的例子
+
+```sh
+5 6 6 三者进行比较 (5+6)/2,就是中位数
+```
+
+
+### implementation {#implementation}
+
+```cpp
+#include <cmath>
+#include <iostream>
+#include <vector>
+
+class Solution {
+public:
+  double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
+      int total_length = nums1.size() + nums2.size();
+      int idx1 = nums1.size() / 2;
+      int idx2 = nums2.size() / 2;
+      int mid = total_length / 2;
+
+      while (idx1 + idx2 != mid) {
+          if (idx1 + idx2 < mid) {
+              if(idx1 < idx2){
+
+              }else{
+
+              }
+          }
+          else if(idx1 + idx2 > mid) {
+              if(idx1 < idx2){
+
+              }else{
+
+              }
+          }
+      }
+  };
+
+    int main(int argc, char *argv[]) { return 0; }
+```
+
+
+### summery {#summery}

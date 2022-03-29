@@ -1,4 +1,4 @@
-baseURL = 'http://jidibinlin.github.io'
-theme = "fuji"
+baseURL = 'https://jidibinlin.github.io'
+theme = "erblog"
 languageCode = 'en-us'
 title = 'jidibinlin`s blog Site'

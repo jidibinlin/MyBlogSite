@@ -1,3 +1,12 @@
 [submodule "themes/fuji"]
 	path = themes/fuji
 	url = https://github.com/dsrkafuu/hugo-theme-fuji.git
+[submodule "public"]
+	path = public
+	url = git@github.com:jidibinlin/jidibinlin.github.io.git
+[submodule "themes/erblog"]
+	path = themes/erblog
+	url = https://github.com/ertuil/erblog
+[submodule "mynote"]
+	path = mynote
+	url = git@github.com:jidibinlin/mynote.git
