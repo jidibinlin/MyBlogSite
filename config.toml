@@ -141,11 +141,11 @@ enableEmoji = true
           # Gravatar Email for preferred avatar in home page
           gravatarEmail = ""
           # URL of avatar shown in home page
-          avatarURL = "/images/avatar.png"
+          avatarURL = "/icon.jpeg"
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
-          subtitle = "A Clean, Elegant but Advanced Hugo Theme"
+          subtitle = "A heart boys blog site"
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
@@ -159,15 +159,15 @@ enableEmoji = true
           paginate = 6
       # Social config in home page
       [languages.en.params.social]
-        GitHub = "xxxx"
+        GitHub = "jidibinlin"
         Linkedin = ""
-        Twitter = "xxxx"
-        Instagram = "xxxx"
-        Facebook = "xxxx"
-        Telegram = "xxxx"
+        Twitter = ""
+        Instagram = ""
+        Facebook = ""
+        Telegram = ""
         Medium = ""
         Gitlab = ""
-        Youtubelegacy = "xxxx"
+        Youtubelegacy = ""
         Youtubecustom = ""
         Youtubechannel = ""
         Tumblr = ""
@@ -220,11 +220,11 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = ""
-        Email = "xxxx@xxxx.com"
+        Email = "2694273649@qq.com"
         RSS = true
-        [languages.en.params.social.Mastodon]
-          id = "@xxxx"
-          prefix = "https://mastodon.technology/"
+        # [languages.en.params.social.Mastodon]
+        #   id = "@xxxx"
+        #   prefix = "https://mastodon.technology/"
 
   [languages.zh-cn]
     weight = 2
@@ -657,7 +657,7 @@ enableEmoji = true
       logo = ""
       # title name
       # 标题名称
-      name = "LoveIt"
+      name = "Jidibinlin"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
@@ -666,7 +666,7 @@ enableEmoji = true
       post = ""
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
-      typeit = false
+      typeit = true
 
   # Footer config
   # 页面底部信息配置
@@ -761,7 +761,7 @@ enableEmoji = true
       keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
-      auto = true
+      auto = false
     # Code config
     # 代码配置
     [params.page.code]
@@ -770,7 +770,7 @@ enableEmoji = true
       copy = true
       # the maximum number of lines of displayed code by default
       # 默认展开显示的代码行数
-      maxShownLines = 10
+      maxShownLines = 200
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
@@ -1075,7 +1075,7 @@ enableEmoji = true
 [author]
   name = "jidibinlin"
   email = "2694273649@qq.com"
-  link = ""
+  link = "https://jidibinlin.github.io"
 
 # Sitemap config
 # 网站地图配置

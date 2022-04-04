@@ -1,12 +1,17 @@
 +++
 title = "leetcode-盛水最多的容器"
-date = 2022-04-02T21:25:00+08:00
-lastmod = 2022-04-03T19:24:18+08:00
+description = "这道题的核心是双指针和贪心算法，通过不断移动两个指针，找到局部最优解，如果局部最优解优于全局最优解，则刷新全局最优解。"
+date = 2022-04-04T16:32:00+08:00
+lastmod = 2022-04-04T17:32:26+08:00
 tags = ["leetcode", "double-point"]
 categories = ["leetcode"]
 draft = false
 toc = true
+math = true
 +++
+
+<!--more-->
+
 
 ## 1 Description {#1-description}
 
@@ -24,19 +29,19 @@ toc = true
 
 ### 2.1 slove step {#2-dot-1-slove-step}
 
-1.  分配两个指针，分别指向数组的头尾
+-   分配两个指针，分别指向数组的头尾
 
     ```nil
     [1,8,6,2,5,4,8,3,7]
      l               r
     ```
-2.  计算面积并与全局最优解做比较，如果大于全局最优解，刷新全局最优解。并且移动对应数字较小的那个指针(向对应数字较大的方向移动)
+-   计算面积并与全局最优解做比较，如果大于全局最优解，刷新全局最优解。并且移动对应数字较小的那个指针(向对应数字较大的方向移动)
 
     ```nil
     [1,8,6,2,5,4,8,3,7]
        l             r
     ```
-3.  重复上述操作直到指针相遇
+-   重复上述操作直到指针相遇
 
 
 ### 2.2 certify {#2-dot-2-certify}
@@ -62,7 +67,7 @@ min(x,y\_{t})\*t\_{1} < min(x,y)\*t
 
 ## 3 implementation {#3-implementation}
 
-```c++
+```cpp
 //c++ version
 #include <algrothim>
 #include <iostream>
