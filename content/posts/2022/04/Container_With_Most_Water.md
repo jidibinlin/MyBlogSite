@@ -2,7 +2,7 @@
 title = "leetcode-盛水最多的容器"
 description = "这道题的核心是双指针和贪心算法，通过不断移动两个指针，找到局部最优解，如果局部最优解优于全局最优解，则刷新全局最优解。"
 date = 2022-04-04T16:32:00+08:00
-lastmod = 2022-04-04T17:32:26+08:00
+lastmod = 2022-04-04T17:41:18+08:00
 tags = ["leetcode", "double-point"]
 categories = ["leetcode"]
 draft = false
@@ -20,7 +20,7 @@ math = true
 {{< figure src="/ox-hugo/2022-02-09_17-16-12_screenshot.png" >}}
 
 
-## 2 analyze problem {#2-analyze-problem}
+## 2.analyze problem {#2-dot-analyze-problem}
 
 这道题的核心是双指针和贪心算法，通过不断移动两个指针，找到局部最优解，如果局部最优解优于全局最优解，则刷新全局最优解。
 
