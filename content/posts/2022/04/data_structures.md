@@ -2,8 +2,8 @@
 title = "common lisp 数据结构"
 description = "关于common lisp的一些常用数据结构 list sequences hash-table Alist structures Tree Set 介绍及其基本操作"
 date = 2022-04-19T11:13:00+08:00
-lastmod = 2022-04-22T10:24:25+08:00
-tags = ["data-structure"]
+lastmod = 2022-04-22T16:05:49+08:00
+tags = ["common-lisp"]
 categories = ["lisp"]
 draft = false
 toc = true

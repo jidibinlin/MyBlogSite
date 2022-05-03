@@ -1,8 +1,8 @@
 +++
 title = "common lisp 函数"
 date = 2022-04-17T14:07:00+08:00
-lastmod = 2022-04-19T10:42:53+08:00
-tags = ["common_lisp"]
+lastmod = 2022-04-22T16:04:58+08:00
+tags = ["common-lisp"]
 categories = ["lisp"]
 draft = false
 toc = true
