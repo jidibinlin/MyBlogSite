@@ -2,7 +2,7 @@
 title = "golang plugin 性能分析"
 description = "有关golang plugin的基本使用方法，注意事项 和性能分析"
 date = 2022-07-05T18:08:00+08:00
-lastmod = 2022-07-06T21:12:06+08:00
+lastmod = 2022-07-06T21:19:46+08:00
 tags = ["golang"]
 categories = ["golang"]
 draft = false
@@ -297,4 +297,4 @@ ok  	testplugin	16.576s
 
 ## 结论 {#结论}
 
-正常使用过程中你并不需要特别关心plugin所带来的消耗，因为相比函数内部逻辑带来的消耗，plugin 所带来的消耗实在是太小了。在了解plugin特性的时候，我还了解到golang 有一个 [go-plugin](https://github.com/hashicorp/go-plugin) 的包，使用grpc来实现组建的拔插，截止到现在已经有3.7k的收藏。所以性能并不由调用函数的速度决定，性能取决于函数内部的逻辑是如何实现的。
+正常使用过程中你并不需要特别关心plugin所带来的消耗，因为相比函数内部逻辑带来的消耗，plugin 所带来的消耗实在是太小了。在了解plugin特性的时候，我还了解到golang 有一个 [go-plugin](https://github.com/hashicorp/go-plugin) 的包，使用grpc来实现组件的拔插，截止到现在已经有3.7k的收藏。所以性能并不由调用函数的速度决定，性能取决于函数内部的逻辑是如何实现的。
