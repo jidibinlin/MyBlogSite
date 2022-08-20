@@ -2,10 +2,10 @@
 title = "GoGameActor104 再谈热更（为什么lua这种脚本语言在游戏中受青睐）"
 description = "为什么lua这种动态类型的语言会在游戏中备受青睐"
 date = 2022-07-17T19:47:00+08:00
-lastmod = 2022-07-18T11:01:50+08:00
+lastmod = 2022-08-20T19:27:55+08:00
 tags = ["game-framework", "lua", "golang"]
 categories = ["game-framework", "lua", "golang"]
-draft = false
+draft = true
 toc = true
 math = true
 +++
@@ -21,7 +21,7 @@ math = true
 那么现在我就我目前的工作经验谈谈这些不痛快, 最近在用golang, 所以下面都是基于后端使用golang的假设。
 
 
-## point one，因为协议导致数据和业务耦合新业务没法打进正在运行的进程中去 {#point-one-因为协议导致数据和业务耦合新业务没法打进正在运行的进程中去}
+## point one，同一数据结构和多个模块业务耦合, 数据结构修改导致不得不重新编译 {#point-one-同一数据结构和多个模块业务耦合-数据结构修改导致不得不重新编译}
 
 我目前待过的游戏公司只有两家，那么写新业务的大致流程是
 
