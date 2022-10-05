@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       C0840691-7A4F-4A38-B20F-1656F41FCDA3
+:TYPE:     main
+:END:
+
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: true
+#+DATE: [2022-10-04 Tue 22:04]
+#+TITLE: dynamic programming
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+#+DESCRIPTION: dynamic programming
+#+begin_export html
+<!--more-->
+#+end_export

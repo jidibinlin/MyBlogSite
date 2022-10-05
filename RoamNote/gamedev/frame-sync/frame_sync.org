@@ -1,0 +1,58 @@
+:PROPERTIES:
+:ID:       97304B6E-27DB-4B66-838C-6E832F8C01BA
+:TYPE:     sub
+:END:
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: false
+#+DATE: [2022-10-05 Wed 16:24]
+#+TITLE: frame-sync
+#+HUGO_TAGS: gamedev frame_sync
+#+HUGO_CATEGORIES: gamedev
+#+DESCRIPTION:
+#+begin_export html
+<!--more-->
+#+end_export
+* main topic links :noexport: 
+[[id:0AAE4AF7-360C-4525-A746-8EFECBD82F2B][gamedev]]
+
+
+* enemy sync flow
+#+begin_src plantuml :file sync-position.png
+  @startuml
+  !theme cyborg
+  start
+  while (game stoped?) is (false)
+          :get new key frame from queue;
+          if (new key frame come) then (yes)
+                  :store new key frame;
+                  :set use sync frame to true;
+          else (no)
+          endif
+          if (use key frame) then (yes)
+                :lerp new position
+                (for sync accelate the speed);
+                if (new position == key frame position) then (yes)
+                          :set use key
+                          frame to false;
+                  else (no)
+                  endif
+          else (no)
+                  :get the input event
+                  from key frame;
+                  :forecast position
+                  through input event;
+          endif
+          :update enemy;
+  endwhile (true)
+  end
+  @enduml
+#+end_src
+
+#+RESULTS:
+[[file:sync-position.png]]

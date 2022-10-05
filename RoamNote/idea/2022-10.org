@@ -1,0 +1,10 @@
+* idea-2022-10
+:PROPERTIES:
+:ID:       B2CC9243-6F6C-40E5-B13F-A45C80B9B305
+:END:
+* migrate gtd to org-roam
+:PROPERTIES:
+:ID:       D5817F9A-26AB-4514-AD2F-ABB24AB65FE7
+:END:
+[[id:B2CC9243-6F6C-40E5-B13F-A45C80B9B305][idea-2022-10]]
+find a time to migrate journal to org-roam

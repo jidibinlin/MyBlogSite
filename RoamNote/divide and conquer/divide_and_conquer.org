@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       75382D18-A83D-443D-A545-74AB3DB60839
+:TYPE:     main
+:END:
+
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: true
+#+DATE: [2022-10-04 Tue 22:04]
+#+TITLE: divide and conquer
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+#+DESCRIPTION: divide and conquer
+#+begin_export html
+<!--more-->
+#+end_export

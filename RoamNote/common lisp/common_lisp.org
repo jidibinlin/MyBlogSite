@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       E6B2673A-E80B-4B4C-91A5-2815305DCD54
+:TYPE:     main
+:END:
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: false
+#+DATE: [2022-10-04 Tue 20:05]
+#+TITLE: Common Lisp
+#+HUGO_TAGS: common_lisp
+#+HUGO_CATEGORIES: lisp
+#+DESCRIPTION: common lisp introduction

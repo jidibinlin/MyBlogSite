@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       BDEB359F-A61F-4BA5-BA0B-CC6D627DB3AE
+:TYPE:     main
+:END:
+
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: true
+#+DATE: [2022-10-04 Tue 22:04]
+#+TITLE: leetcode
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+#+DESCRIPTION: leetcode
+#+begin_export html
+<!--more-->
+#+end_export

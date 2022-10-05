@@ -1,0 +1,130 @@
+:PROPERTIES:
+:ID:       0BE9616C-A2C3-4168-A545-A8AEFD7AE03B
+:TYPE:     sub
+:END:
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: false
+#+DATE: [2022-10-04 Tue 23:42]
+#+TITLE: 3sum
+#+HUGO_TAGS: leetcode
+#+HUGO_CATEGORIES: leetcode
+#+DESCRIPTION:
+#+begin_export html
+<!--more-->
+#+end_export
+* main topic links :noexport: 
+[[id:BDEB359F-A61F-4BA5-BA0B-CC6D627DB3AE][leetcode]]
+
+* Problem description
+#+DOWNLOADED: screenshot @ 2022-02-12 15:24:53
+[[file:Problems_description/2022-02-12_15-24-53_screenshot.png]]
+
+* Analyse
+这道题难点在于不重复的三元组，但是三重枚举后不断通过哈希去去重的消耗太高不合适。解决这个难点的可以先将数组进行排序，然后按照顺序去枚举当遇到相同的元素时，直接跳过，这样就避免了之后需要哈希去重的麻烦事。
+这道题的三重枚举可以优化成两重。当 a+b+c = 0(a<=b<=c)，在进行下一次二重枚举的若有满足条件的组合,会有 a+b`+c`=0(b`>b && c`<c) 这意味着，我们不必在第三重枚举时枚举所有剩下的元素，只需要枚举比上一次满足要求组合中比c小的元素即可。
+我们可以采用双指针的思想，让第二轮的second 固定，不断向左平移thrid下标
+* Implement
+#+begin_src go :tangle 3Sum.go
+  package main
+
+  import (
+      "fmt"
+      "sort"
+  )
+
+  func threeSum(nums []int) [][]int {
+
+      if len(nums) < 3 {
+          return [][]int{}
+      }
+
+      result := [][]int{}
+      sort.Ints(nums)
+
+      for i := 0; i <= len(nums)-3; i++ {
+          if i > 0 && nums[i] == nums[i-1] {
+              continue
+          }
+
+          k := len(nums) - 1
+          target := -1 * nums[i]
+
+          for j := i + 1; j <= len(nums)-2; j++ {
+              if j > i+1 && nums[j] == nums[j-1] {
+                  continue
+              }
+
+              for j < k && nums[j]+nums[k] > target {
+                  k--
+              }
+
+              if j == k {
+                  break
+              }
+
+              if nums[j]+nums[k] == target {
+                  result = append(result, []int{nums[i], nums[j], nums[k]})
+              }
+
+          }
+      }
+      return result
+  }
+#+end_src
+
+#+begin_src c++ :tangle 3Sum.cpp
+  #include <algorithm>
+  #include <vector>
+
+  using namespace std;
+  class Solution {
+  public:
+      vector<vector<int>> threeSum(vector<int>& nums) {
+
+          vector<vector<int>> result;
+
+          if (nums.size() < 3) {
+              return result;
+          }
+
+          sort(nums.begin(),nums.end());
+
+          for (int i=0; i<nums.size(); ++i) {
+              if (i>0 && nums[i]==nums[i-1]) {
+                  continue;
+              }
+
+              int third = nums.size()-1;
+              int target = -nums[i];
+
+              for (int j=i+1; j<nums.size(); j++) {
+                  if (j>i+1 && nums[j] == nums[j-1]) {
+                      continue;
+                  }
+
+                  while(j<third && nums[j]+nums[third] > target){
+                      third--;
+                  }
+
+                  if (third == j) {
+                      break;
+                  }
+
+                  if(nums[j]+nums[third] == target){
+                      result.push_back({nums[i],nums[j],nums[third]});
+                  }
+              }
+          }
+          return result;
+      }
+  };
+#+end_src
+
+* Summery
+解题的时候还是应该多多思考题目已知条件所带来的一些性质，这题就用到了数字可以排序的性质来解决重复枚举的问题。新的第三轮的枚举值必定小于上一次成功的第三轮枚举值，可以用来优化代码。

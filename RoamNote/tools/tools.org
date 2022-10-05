@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       801A5089-94CF-40AE-9896-A8CA70445527
+:TYPE:     main
+:END:
+
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_SECTION: /posts/2022/10
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: true
+#+DATE: [2022-10-04 Tue 22:04]
+#+TITLE: tools
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+#+DESCRIPTION: tools
+#+begin_export html
+<!--more-->
+#+end_export

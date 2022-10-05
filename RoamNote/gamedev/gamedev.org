@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       0AAE4AF7-360C-4525-A746-8EFECBD82F2B
+:TYPE:     main
+:END:
+#+TITLE: gamedev
+
+* gamedev
