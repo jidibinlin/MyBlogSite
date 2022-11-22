@@ -56,3 +56,25 @@
 
 #+RESULTS:
 [[file:sync-position.png]]
+* start flow
+#+begin_src plantuml :file start-flow.png
+  @startuml
+  !theme cyborg
+  start
+  :click_button;
+  while (both_clicked) is (no)
+          :wait for both_clicked;
+  endwhile (yes)
+  :init scene;
+  :send inited msg;
+  :receive first 10 frame msg;
+  :calculate delay;
+  :sync time with server;
+  :unlock operation;
+  :collect and send operation intervally;
+  end
+  @enduml
+#+end_src
+
+#+RESULTS:
+[[file:start-flow.png]]

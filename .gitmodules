@@ -15,7 +15,7 @@
 	url = https://github.com/luizdepra/hugo-coder.git
 [submodule "themes/LoveIt"]
 	path = themes/LoveIt
-	url = https://github.com/jidibinlin/LoveIt.git
+	url = git@github.com:jidibinlin/LoveIt.git
 [submodule "Note"]
 	path = Note
 	url = git@github.com:jidibinlin/mynote.git

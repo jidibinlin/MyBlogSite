@@ -3,5 +3,4 @@
 :TYPE:     main
 :END:
 #+TITLE: gamedev
-
-* gamedev
+** gamedev
