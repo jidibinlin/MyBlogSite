@@ -1,22 +1,20 @@
 :PROPERTIES:
-:ID:       3C750524-FE6A-460F-8E92-C0344C3A6F55
-:TYPE:     main
+:ID:       80D02EF4-A90F-43EC-8DB3-732AEBB90913
+:TYPE:     sub
 :END:
-
 #+startup: latexpreview
 #+OPTIONS: author:nil ^:{}
 #+HUGO_BASE_DIR: ~/Documents/MyBlogSite
-#+HUGO_SECTION: /posts/2022/10
+#+HUGO_SECTION: /posts/2023/09
 #+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
 #+HUGO_AUTO_SET_LASTMOD: t
 #+HUGO_PAIRED_SHORTCODES: admonition
 #+HUGO_DRAFT: true
-#+DATE: [2022-10-04 Tue 22:04]
-#+TITLE: Actor
+#+DATE: [2023-09-29 Fri 13:26]
+#+TITLE: Systems of Linear Equations
 #+HUGO_TAGS:
 #+HUGO_CATEGORIES:
-#+DESCRIPTION: actor 介绍
+#+DESCRIPTION:
 #+begin_export html
 <!--more-->
 #+end_export
-

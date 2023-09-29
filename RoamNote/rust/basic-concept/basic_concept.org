@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:       35324179-BBB4-44FB-9EAD-3B48378B4198
+:TYPE:     sub
+:END:
+#+startup: latexpreview
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ~/Documents/MyBlogSite
+#+HUGO_SECTION: /posts/2023/05
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_PAIRED_SHORTCODES: admonition
+#+HUGO_DRAFT: true
+#+DATE: [2023-05-14 Sun 14:10]
+#+TITLE: basic-concept
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+#+DESCRIPTION:
+#+begin_export html
+<!--more-->
+#+end_export
+* main topic links :noexport: 
+[[id:4E39DE53-A835-40C9-9A97-F352C8434101][rust]]
+
+* introduce from a gussing game
+
+#+begin_src rust
+  use std::io;
+
+  fn main() {
+      println!("Guess the number!");
+
+      println!("Please input your guess.");
+
+      let mut guess = String::new();
+
+      io::stdin()
+          .read_line(&mut guess)
+          .expect("Failed to read line");
+
+      println!("You guessed: {guess}");
+
+  }
+#+end_src
+

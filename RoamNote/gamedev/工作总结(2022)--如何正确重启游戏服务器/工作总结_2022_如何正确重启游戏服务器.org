@@ -4,7 +4,7 @@
 :END:
 #+startup: latexpreview
 #+OPTIONS: author:nil ^:{}
-#+HUGO_BASE_DIR: ~/Documents/myblog
+#+HUGO_BASE_DIR: ~/Documents/MyBlogSite
 #+HUGO_SECTION: /posts/2022/11
 #+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
 #+HUGO_AUTO_SET_LASTMOD: t

@@ -1,21 +1,20 @@
 :PROPERTIES:
-:ID:       3C750524-FE6A-460F-8E92-C0344C3A6F55
+:ID:       4E39DE53-A835-40C9-9A97-F352C8434101
 :TYPE:     main
 :END:
-
 #+startup: latexpreview
 #+OPTIONS: author:nil ^:{}
 #+HUGO_BASE_DIR: ~/Documents/MyBlogSite
-#+HUGO_SECTION: /posts/2022/10
+#+HUGO_SECTION: /posts/2023/05
 #+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
 #+HUGO_AUTO_SET_LASTMOD: t
 #+HUGO_PAIRED_SHORTCODES: admonition
 #+HUGO_DRAFT: true
-#+DATE: [2022-10-04 Tue 22:04]
-#+TITLE: Actor
+#+DATE: [2023-05-14 Sun 14:09]
+#+TITLE: rust
 #+HUGO_TAGS:
 #+HUGO_CATEGORIES:
-#+DESCRIPTION: actor 介绍
+#+DESCRIPTION:
 #+begin_export html
 <!--more-->
 #+end_export
