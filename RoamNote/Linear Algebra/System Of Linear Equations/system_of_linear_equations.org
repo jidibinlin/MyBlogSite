@@ -1,20 +1,22 @@
 :PROPERTIES:
-:ID:       80D02EF4-A90F-43EC-8DB3-732AEBB90913
+:ID:       9C6F41C7-49C6-4E98-94B3-AFDE34A726FB
 :TYPE:     sub
 :END:
 #+startup: latexpreview
 #+OPTIONS: author:nil ^:{}
 #+HUGO_BASE_DIR: ~/Documents/MyBlogSite
-#+HUGO_SECTION: /posts/2023/09
+#+HUGO_SECTION: /posts/2023/10
 #+HUGO_CUSTOM_FRONT_MATTER: :toc true :math true
 #+HUGO_AUTO_SET_LASTMOD: t
 #+HUGO_PAIRED_SHORTCODES: admonition
 #+HUGO_DRAFT: true
-#+DATE: [2023-09-29 Fri 13:26]
-#+TITLE: Systems of Linear Equations
+#+DATE: [2023-10-01 Sun 12:01]
+#+TITLE: System Of Linear Equations
 #+HUGO_TAGS:
 #+HUGO_CATEGORIES:
 #+DESCRIPTION:
 #+begin_export html
 <!--more-->
 #+end_export
+* main topic links :noexport: 
+[[id:49F893EC-5CB6-4B6B-BCC9-C2F82C347EB0][Linear Algebra]]
